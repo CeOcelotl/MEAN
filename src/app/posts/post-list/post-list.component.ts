@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { Post } from '../post.interface';
 
 const materialGroup = [MatExpansionModule];
 
@@ -9,13 +10,8 @@ const materialGroup = [MatExpansionModule];
   standalone: true,
   imports: [CommonModule, materialGroup],
   templateUrl: './post-list.component.html',
-  styleUrls: ['./post-list.component.css']
+  styleUrls: ['./post-list.component.css'],
 })
 export class PostListComponent {
-  // posts = [
-  //   {title:"First Post", content:"This is the first post's content"},
-  //   {title:"Second Post", content:"This is the Second post's content"},
-  //   {title:"Third Post", content:"This is the Third post's content"}
-  // ]
-  posts = [];
+  @Input() posts: Post[] = [];
 }
