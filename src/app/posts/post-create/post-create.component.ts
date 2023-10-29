@@ -1,9 +1,9 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { Post } from '../post.interface';
 
 const materialGroup = [MatInputModule, MatCardModule, MatButtonModule];
 @Component({
@@ -11,16 +11,15 @@ const materialGroup = [MatInputModule, MatCardModule, MatButtonModule];
   standalone: true,
   templateUrl: './post-create.component.html',
   styleUrls: ['./post-create.component.css'],
-  imports: [CommonModule, FormsModule, materialGroup],
+  imports: [FormsModule, materialGroup],
 })
 export class PostCreateComponent {
-
   enteredContent = '';
   enteredTitle = '';
-  @Output() postCreated = new EventEmitter();
+  @Output() postCreated = new EventEmitter<Post>();
 
   onAddPost() {
-    const post = {
+    const post: Post = {
       title: this.enteredTitle,
       content: this.enteredContent,
     };
