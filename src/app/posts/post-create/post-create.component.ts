@@ -16,8 +16,10 @@ const materialGroup = [MatInputModule, MatCardModule, MatButtonModule,MatFormFie
   imports: [FormsModule, NgIf, materialGroup],
 })
 export class PostCreateComponent {
+
   enteredContent = '';
   enteredTitle = '';
+
   @Output() postCreated = new EventEmitter<Post>();
 
   onAddPost(form: NgForm) {
